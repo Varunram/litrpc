@@ -292,14 +292,14 @@ func main() {
 			panic(e)
 		}
 	}
-	tmpl.Execute(open("./litrpc/index.html"), Document{
+	tmpl.Execute(open("./index.html"), Document{
 		Command: nil,
 		Groups:  groups,
 	})
 
 	for _, group := range groups {
 		for _, command := range group.Commands {
-			tmpl.Execute(open("./litrpc/"+command.Name+".html"), Document{
+			tmpl.Execute(open("./"+command.Name+".html"), Document{
 				Command:     &command,
 				Groups:      groups,
 				Description: command.Description,
